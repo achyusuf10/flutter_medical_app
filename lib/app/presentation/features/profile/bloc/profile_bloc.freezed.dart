@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'medicine_riview_bloc.dart';
+part of 'profile_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$MedicineRiviewEvent {
+mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
@@ -51,16 +51,16 @@ mixin _$MedicineRiviewEvent {
 }
 
 /// @nodoc
-abstract class $MedicineRiviewEventCopyWith<$Res> {
-  factory $MedicineRiviewEventCopyWith(
-          MedicineRiviewEvent value, $Res Function(MedicineRiviewEvent) then) =
-      _$MedicineRiviewEventCopyWithImpl<$Res, MedicineRiviewEvent>;
+abstract class $ProfileEventCopyWith<$Res> {
+  factory $ProfileEventCopyWith(
+          ProfileEvent value, $Res Function(ProfileEvent) then) =
+      _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
 }
 
 /// @nodoc
-class _$MedicineRiviewEventCopyWithImpl<$Res, $Val extends MedicineRiviewEvent>
-    implements $MedicineRiviewEventCopyWith<$Res> {
-  _$MedicineRiviewEventCopyWithImpl(this._value, this._then);
+class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
+    implements $ProfileEventCopyWith<$Res> {
+  _$ProfileEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,7 +77,7 @@ abstract class _$$_StartedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_StartedCopyWithImpl<$Res>
-    extends _$MedicineRiviewEventCopyWithImpl<$Res, _$_Started>
+    extends _$ProfileEventCopyWithImpl<$Res, _$_Started>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
@@ -90,7 +90,7 @@ class _$_Started implements _Started {
 
   @override
   String toString() {
-    return 'MedicineRiviewEvent.started()';
+    return 'ProfileEvent.started()';
   }
 
   @override
@@ -159,12 +159,12 @@ class _$_Started implements _Started {
   }
 }
 
-abstract class _Started implements MedicineRiviewEvent {
+abstract class _Started implements ProfileEvent {
   const factory _Started() = _$_Started;
 }
 
 /// @nodoc
-mixin _$MedicineRiviewState {
+mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -200,16 +200,16 @@ mixin _$MedicineRiviewState {
 }
 
 /// @nodoc
-abstract class $MedicineRiviewStateCopyWith<$Res> {
-  factory $MedicineRiviewStateCopyWith(
-          MedicineRiviewState value, $Res Function(MedicineRiviewState) then) =
-      _$MedicineRiviewStateCopyWithImpl<$Res, MedicineRiviewState>;
+abstract class $ProfileStateCopyWith<$Res> {
+  factory $ProfileStateCopyWith(
+          ProfileState value, $Res Function(ProfileState) then) =
+      _$ProfileStateCopyWithImpl<$Res, ProfileState>;
 }
 
 /// @nodoc
-class _$MedicineRiviewStateCopyWithImpl<$Res, $Val extends MedicineRiviewState>
-    implements $MedicineRiviewStateCopyWith<$Res> {
-  _$MedicineRiviewStateCopyWithImpl(this._value, this._then);
+class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
+    implements $ProfileStateCopyWith<$Res> {
+  _$ProfileStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -226,7 +226,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$MedicineRiviewStateCopyWithImpl<$Res, _$_Initial>
+    extends _$ProfileStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -239,7 +239,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'MedicineRiviewState.initial()';
+    return 'ProfileState.initial()';
   }
 
   @override
@@ -308,6 +308,6 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements MedicineRiviewState {
+abstract class _Initial implements ProfileState {
   const factory _Initial() = _$_Initial;
 }

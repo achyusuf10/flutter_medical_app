@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "593185285571-ii74limrp2qm9kfjhgj96uul7ar65d8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medical_app",
+            "certificate_hash": "ea4dc1d05113289d8c3f95acd14b970f96446942"
+          }
+        },
+        {
           "client_id": "593185285571-drjkq270iplh18lqbe64cmbanrd155ei.apps.googleusercontent.com",
           "client_type": 3
         }
