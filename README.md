@@ -1,16 +1,17 @@
-# medical_app
+## Cara Run Aplikasi
 
-A new Flutter project.
+1. clone project ini ke penyimpanan local anda
+2. Kemudian buka project ini dengan Visual Studio Code atau dengan Android Studio
+3. Kemudian aplikasi terbuka
+4. Atau Download file apk pada []
 
-## Getting Started
+## Cara menggunakan aplikasi
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Masuk aplikasi, dan login aplikasi
+2. Pilih Tab Product
+3. Kemudian klik Add to chart untuk menaruh produk pada keranjang
+4. Kemudian klik icon keranjang yang ada pada App Bar
+5. Kemudian atur jumlah productnya
+6. Jika sudah, klik checkout
+7. Kemudian klik choose payment method dan klik confirm
+8. Kemudian buka tab transaction, dan silahkan untuk meninggalkan riview product
