@@ -14,6 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i12;
 import 'package:flutter/material.dart' as _i13;
 
+import '../app/domain/entity/cart/cart_entity.dart' as _i14;
 import '../app/presentation/features/auth/views/login_view.dart' as _i2;
 import '../app/presentation/features/auth/views/splash_view.dart' as _i1;
 import '../app/presentation/features/booking/views/booking_view.dart' as _i10;
@@ -73,9 +74,13 @@ class AppRouter extends _i12.RootStackRouter {
       );
     },
     CheckoutRoute.name: (routeData) {
+      final args = routeData.argsAs<CheckoutRouteArgs>();
       return _i12.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i5.CheckoutView(),
+        child: _i5.CheckoutView(
+          key: args.key,
+          listCart: args.listCart,
+        ),
         transitionsBuilder: _i12.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 500,
         opaque: true,
@@ -83,9 +88,13 @@ class AppRouter extends _i12.RootStackRouter {
       );
     },
     PaymentRoute.name: (routeData) {
+      final args = routeData.argsAs<PaymentRouteArgs>();
       return _i12.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i6.PaymentView(),
+        child: _i6.PaymentView(
+          args.listCartEntity,
+          key: args.key,
+        ),
         transitionsBuilder: _i12.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 500,
         opaque: true,
@@ -243,26 +252,70 @@ class CartRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.CheckoutView]
-class CheckoutRoute extends _i12.PageRouteInfo<void> {
-  const CheckoutRoute()
-      : super(
+class CheckoutRoute extends _i12.PageRouteInfo<CheckoutRouteArgs> {
+  CheckoutRoute({
+    _i13.Key? key,
+    required List<_i14.CartEntity> listCart,
+  }) : super(
           CheckoutRoute.name,
           path: '/checkout',
+          args: CheckoutRouteArgs(
+            key: key,
+            listCart: listCart,
+          ),
         );
 
   static const String name = 'CheckoutRoute';
 }
 
+class CheckoutRouteArgs {
+  const CheckoutRouteArgs({
+    this.key,
+    required this.listCart,
+  });
+
+  final _i13.Key? key;
+
+  final List<_i14.CartEntity> listCart;
+
+  @override
+  String toString() {
+    return 'CheckoutRouteArgs{key: $key, listCart: $listCart}';
+  }
+}
+
 /// generated route for
 /// [_i6.PaymentView]
-class PaymentRoute extends _i12.PageRouteInfo<void> {
-  const PaymentRoute()
-      : super(
+class PaymentRoute extends _i12.PageRouteInfo<PaymentRouteArgs> {
+  PaymentRoute({
+    required List<_i14.CartEntity> listCartEntity,
+    _i13.Key? key,
+  }) : super(
           PaymentRoute.name,
           path: '/payment',
+          args: PaymentRouteArgs(
+            listCartEntity: listCartEntity,
+            key: key,
+          ),
         );
 
   static const String name = 'PaymentRoute';
+}
+
+class PaymentRouteArgs {
+  const PaymentRouteArgs({
+    required this.listCartEntity,
+    this.key,
+  });
+
+  final List<_i14.CartEntity> listCartEntity;
+
+  final _i13.Key? key;
+
+  @override
+  String toString() {
+    return 'PaymentRouteArgs{listCartEntity: $listCartEntity, key: $key}';
+  }
 }
 
 /// generated route for

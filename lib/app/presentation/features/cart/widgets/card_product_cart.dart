@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medical_app/app/domain/entity/cart/cart_entity.dart';
+import 'package:medical_app/app/presentation/features/cart/bloc/cart_bloc.dart';
+import 'package:medical_app/core/helper/converter/currency_converter.dart';
 
 import '../../../../widgets/custom_box_image.dart';
 import '../widgets/counter_widget.dart';
 
 class CardProductCart extends StatelessWidget {
+  final CartEntity cartEntity;
+
   const CardProductCart({
     Key? key,
+    required this.cartEntity,
   }) : super(key: key);
 
   @override
@@ -45,14 +52,14 @@ class CardProductCart extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Paracetamol',
+                  cartEntity.productEntity?.name ?? '',
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
                       .copyWith(color: Colors.black, fontSize: 16.sp),
                 ),
                 Text(
-                  '500 mg 10 tablet',
+                  cartEntity.productEntity?.shortDesc ?? '',
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: Colors.black,
                       ),
@@ -61,7 +68,8 @@ class CardProductCart extends StatelessWidget {
                   height: 5.w,
                 ),
                 Text(
-                  'Rp. 4.100',
+                  CurrencyConverter.rpFormating(
+                      cartEntity.productEntity?.price ?? 0),
                   style: Theme.of(context)
                       .textTheme
                       .headline2!
@@ -70,7 +78,23 @@ class CardProductCart extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                const CounterWidget()
+                CounterWidget(
+                  onAdd: () {
+                    context
+                        .read<CartBloc>()
+                        .add(CartEvent.addQuantity(cartEntity: cartEntity));
+                  },
+                  onDelete: () {
+                    context
+                        .read<CartBloc>()
+                        .add(CartEvent.deleteCart(cartEntity: cartEntity));
+                  },
+                  onSubtract: () {
+                    context.read<CartBloc>().add(
+                        CartEvent.subtractQuantity(cartEntity: cartEntity));
+                  },
+                  quantity: cartEntity.quantity,
+                )
               ],
             ),
           )

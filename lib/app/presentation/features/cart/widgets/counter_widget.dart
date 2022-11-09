@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CounterWidget extends StatelessWidget {
+  final Function()? onAdd;
+  final Function()? onSubtract;
+  final Function()? onDelete;
+  final int quantity;
   const CounterWidget({
     Key? key,
+    required this.onAdd,
+    required this.onSubtract,
+    required this.onDelete,
+    required this.quantity,
   }) : super(key: key);
 
   @override
@@ -12,7 +20,7 @@ class CounterWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: onDelete,
           child: const Icon(
             Icons.delete_outline_rounded,
           ),
@@ -32,7 +40,7 @@ class CounterWidget extends StatelessWidget {
           child: Row(
             children: [
               GestureDetector(
-                onTap: () {},
+                onTap: onSubtract,
                 child: Text(
                   '-',
                   style: Theme.of(context)
@@ -44,12 +52,12 @@ class CounterWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 14),
                 child: Text(
-                  '1',
+                  '$quantity',
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: onAdd,
                 child: Text(
                   '+',
                   style: Theme.of(context)

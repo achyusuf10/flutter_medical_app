@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medical_app/app/domain/entity/product/product_entity.dart';
+import 'package:medical_app/app/presentation/features/product/bloc/product_bloc.dart';
 import 'package:medical_app/app/widgets/custom_box_image.dart';
+import 'package:medical_app/core/helper/converter/currency_converter.dart';
 import 'package:my_widget_package/my_widget_package.dart';
 
 class CardProduct extends StatelessWidget {
+  final ProductEntity productEntity;
   const CardProduct({
     Key? key,
+    required this.productEntity,
   }) : super(key: key);
 
   @override
@@ -30,7 +36,7 @@ class CardProduct extends StatelessWidget {
             onTap: () {},
             width: 100.w,
             aspectRatio: 1 / 1.2,
-            urlImage: '',
+            urlImage: productEntity.urlPhoto,
           ),
           const SizedBox(
             width: 20,
@@ -40,20 +46,20 @@ class CardProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Paracetamol',
+                  productEntity.name,
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
                       .copyWith(color: Colors.black, fontSize: 16.sp),
                 ),
                 Text(
-                  '500 mg 10 tablet',
+                  productEntity.shortDesc,
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: Colors.black,
                       ),
                 ),
                 RatingBarIndicator(
-                  rating: 2.75,
+                  rating: productEntity.rating,
                   itemBuilder: (context, index) => const Icon(
                     Icons.star,
                     color: Colors.amber,
@@ -66,7 +72,7 @@ class CardProduct extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  'Rp. 4.100',
+                  CurrencyConverter.rpFormating(productEntity.price),
                   style: Theme.of(context)
                       .textTheme
                       .headline2!
@@ -77,7 +83,11 @@ class CardProduct extends StatelessWidget {
                   child: CustomButton(
                     width: 100.w,
                     height: 30.h,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<ProductBloc>().add(
+                          ProductEvent.addProductToCart(
+                              productEntity: productEntity));
+                    },
                     child: Text(
                       'Add To Chart',
                       style: Theme.of(context).textTheme.headline2!.copyWith(

@@ -1,1 +1,1 @@
-enum ViewState { loading, success, failed }
+enum ViewState { loading, success, failed, loaded }

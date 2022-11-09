@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medical_app/app/domain/entity/cart/cart_entity.dart';
+import 'package:medical_app/core/helper/converter/currency_converter.dart';
 
 import '../../../../widgets/custom_box_image.dart';
 
 class CardProductCheckout extends StatelessWidget {
-  const CardProductCheckout({super.key});
+  final CartEntity cartEntity;
+  const CardProductCheckout({super.key, required this.cartEntity});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -37,14 +40,14 @@ class CardProductCheckout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Paracetamol',
+                  cartEntity.productEntity!.name,
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
                       .copyWith(color: Colors.black, fontSize: 16.sp),
                 ),
                 Text(
-                  '500 mg 10 tablet',
+                  cartEntity.productEntity!.shortDesc,
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: Colors.black,
                       ),
@@ -55,7 +58,8 @@ class CardProductCheckout extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Rp. 4.100',
+                      CurrencyConverter.rpFormating(
+                          cartEntity.productEntity!.price),
                       style: Theme.of(context)
                           .textTheme
                           .headline2!
@@ -65,7 +69,7 @@ class CardProductCheckout extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      'x 1',
+                      'x ${cartEntity.quantity}',
                       style: Theme.of(context)
                           .textTheme
                           .headline4!
