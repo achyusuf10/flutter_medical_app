@@ -3,7 +3,7 @@
 1. clone project ini ke penyimpanan local anda
 2. Kemudian buka project ini dengan Visual Studio Code atau dengan Android Studio
 3. Kemudian aplikasi terbuka
-4. Atau Download file apk pada (link)[https://github.com/achyusuf10/flutter_medical_app/blob/master/build/app/outputs/flutter-apk/app-release.apk]
+4. Atau Download file apk pada [link](https://github.com/achyusuf10/flutter_medical_app/blob/master/build/app/outputs/flutter-apk/app-release.apk)
 
 ## Cara menggunakan aplikasi
 
