@@ -142,6 +142,7 @@ class ProductHistoryTransaction extends StatelessWidget {
                   height: 30.h,
                   onPressed: () {
                     showModalBottomSheet(
+                        isScrollControlled: true,
                         context: context,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
@@ -183,7 +184,11 @@ class RivewBottomSheet extends HookWidget {
     final riviewC = useTextEditingController();
     final ratingValue = useState(0.0);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.only(
+        left: 24,
+        right: 24,
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

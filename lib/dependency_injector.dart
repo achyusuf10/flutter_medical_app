@@ -9,6 +9,7 @@ import 'package:medical_app/app/domain/usecase/riview/add_riview_usecase.dart';
 import 'package:medical_app/app/presentation/features/auth/bloc/auth_bloc.dart';
 import 'package:medical_app/app/presentation/features/cart/bloc/cart_bloc.dart';
 import 'package:medical_app/app/presentation/features/home/bloc/home_bloc.dart';
+import 'package:medical_app/app/presentation/features/main_screen/cubit/main_screen_cubit.dart';
 
 import 'package:medical_app/app/presentation/features/product/bloc/product_bloc.dart';
 import 'package:medical_app/routes/app_route.gr.dart';
@@ -51,6 +52,7 @@ void setupLocator() {
       () => HistoryTransactionBloc(di.get(), di.get()));
   di.registerLazySingleton<ProductBloc>(() => ProductBloc(di.get(), di.get()));
   di.registerLazySingleton<ProfileBloc>(() => ProfileBloc());
+  di.registerLazySingleton<MainScreenCubit>(() => MainScreenCubit(di.get()));
 
   //NOTE : USECASE
   di.registerLazySingleton<LoginWithEmailPasswordUseCase>(

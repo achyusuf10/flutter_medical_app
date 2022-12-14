@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medical_app/app/presentation/features/auth/bloc/auth_bloc.dart';
+import 'package:medical_app/app/presentation/features/main_screen/cubit/main_screen_cubit.dart';
 import 'package:medical_app/bloc_observer.dart';
 import 'package:medical_app/routes/app_route.gr.dart';
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(create: (context) => di.get()),
+        BlocProvider<MainScreenCubit>(create: (context) => di.get()),
         BlocProvider<CartBloc>(create: (context) => di.get()),
         BlocProvider<HomeBloc>(create: (context) => di.get()),
         BlocProvider<PaymentBloc>(create: (context) => di.get()),
